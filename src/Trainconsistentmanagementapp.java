@@ -1,35 +1,32 @@
 import java.util.*;
 
 /**
- * Train Consist Management App - UC5
- * Demonstrates LinkedHashSet to maintain insertion order + uniqueness.
+ * Train Consist Management App - UC6
+ * Demonstrates HashMap to associate bogies with their capacity.
  *
  * @author Jevin
  * @version 1.0
  */
-public class TrainConsistAppUC5 {
+public class TrainConsistAppUC6 {
 
     public static void main(String[] args) {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // Create LinkedHashSet for ordered & unique bogies
-        Set<String> trainFormation = new LinkedHashSet<>();
+        // Create HashMap for bogie-capacity mapping
+        Map<String, Integer> bogieCapacityMap = new HashMap<>();
 
-        // Add bogies (in order)
-        trainFormation.add("Engine");
-        trainFormation.add("Sleeper");
-        trainFormation.add("Cargo");
-        trainFormation.add("Guard");
+        // Insert bogie capacities (Key-Value pairs)
+        bogieCapacityMap.put("Sleeper", 72);
+        bogieCapacityMap.put("AC Chair", 54);
+        bogieCapacityMap.put("First Class", 24);
+        bogieCapacityMap.put("Cargo", 100); // load capacity example
 
-        // Attempt to add duplicate
-        trainFormation.add("Sleeper"); // will be ignored
-
-        // Display final formation
-        System.out.println("\nFinal Train Formation (Insertion Order Preserved):");
-        System.out.println(trainFormation);
-
-        System.out.println("\nTotal bogies: " + trainFormation.size());
+        // Display mapping using entrySet()
+        System.out.println("\nBogie Capacity Details:");
+        for (Map.Entry<String, Integer> entry : bogieCapacityMap.entrySet()) {
+            System.out.println(entry.getKey() + " -> Capacity: " + entry.getValue());
+        }
 
         System.out.println("\nProgram continues...");
     }
