@@ -1,31 +1,46 @@
 import java.util.*;
 
 /**
- * Train Consist Management App - UC3
- * Demonstrates HashSet to store unique bogie IDs.
+ * Train Consist Management App - UC4
+ * Demonstrates LinkedList for maintaining ordered train consist.
+ *
+ * @author Jevin
+ * @version 1.0
  */
-public class TrainConsistAppUC3 {
+public class TrainConsistAppUC4 {
 
     public static void main(String[] args) {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // Create HashSet for unique bogie IDs
-        Set<String> bogieIds = new HashSet<>();
+        // Create LinkedList for train consist
+        LinkedList<String> trainConsist = new LinkedList<>();
 
-        // Adding bogie IDs (including duplicates)
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
-        bogieIds.add("BG103");
-        bogieIds.add("BG101"); // duplicate
-        bogieIds.add("BG102"); // duplicate
+        // Add bogies (initial order)
+        trainConsist.add("Engine");
+        trainConsist.add("Sleeper");
+        trainConsist.add("AC");
+        trainConsist.add("Cargo");
+        trainConsist.add("Guard");
 
-        // Display result
-        System.out.println("\nBogie IDs (duplicates ignored):");
-        System.out.println(bogieIds);
+        System.out.println("\nInitial Train Consist:");
+        System.out.println(trainConsist);
 
-        // Display total unique count
-        System.out.println("\nTotal unique bogies: " + bogieIds.size());
+        // Insert Pantry Car at position 2 (index 2)
+        trainConsist.add(2, "Pantry");
+
+        System.out.println("\nAfter adding Pantry at position 2:");
+        System.out.println(trainConsist);
+
+        // Remove first and last bogie
+        trainConsist.removeFirst();
+        trainConsist.removeLast();
+
+        System.out.println("\nAfter removing first and last bogie:");
+        System.out.println(trainConsist);
+
+        System.out.println("\nFinal Ordered Train Consist:");
+        System.out.println(trainConsist);
 
         System.out.println("\nProgram continues...");
     }
