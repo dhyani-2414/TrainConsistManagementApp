@@ -1,43 +1,31 @@
 import java.util.*;
 
 /**
- * Train Consist Management App - UC2
- * Demonstrates ArrayList operations (Add, Remove, Contains)
- * for managing passenger bogies.
- *
- * @author Jevin
- * @version 1.0
+ * Train Consist Management App - UC3
+ * Demonstrates HashSet to store unique bogie IDs.
  */
-public class TrainConsistAppUC2 {
+public class TrainConsistAppUC3 {
 
     public static void main(String[] args) {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // Create ArrayList for passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // Create HashSet for unique bogie IDs
+        Set<String> bogieIds = new HashSet<>();
 
-        // Add bogies (CREATE operation)
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Adding bogie IDs (including duplicates)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
 
-        // Display bogies after insertion (READ operation)
-        System.out.println("\nPassenger Bogies after addition:");
-        System.out.println(passengerBogies);
+        // Display result
+        System.out.println("\nBogie IDs (duplicates ignored):");
+        System.out.println(bogieIds);
 
-        // Remove a bogie (DELETE operation)
-        passengerBogies.remove("AC Chair");
-        System.out.println("\nAfter removing AC Chair:");
-        System.out.println(passengerBogies);
-
-        // Check existence (SEARCH operation)
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("\nDoes Sleeper exist? " + exists);
-
-        // Final state
-        System.out.println("\nFinal Passenger Bogies:");
-        System.out.println(passengerBogies);
+        // Display total unique count
+        System.out.println("\nTotal unique bogies: " + bogieIds.size());
 
         System.out.println("\nProgram continues...");
     }
